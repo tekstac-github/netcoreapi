@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netcoreapp
+  labels:
+    app: netcoreapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netcoreapp
+  template:
+    metadata:
+      labels:
+        app: netcoreapp
+    spec:
+      containers:
+      - name: netcoreapp
+        image: tekstac/netcoreapp
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
